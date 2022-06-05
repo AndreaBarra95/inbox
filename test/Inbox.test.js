@@ -50,3 +50,5 @@ describe('Inbox Smart Contract', () => {
     } );
 
 });
+
+//To run this script, execute the command 'npm run test'
