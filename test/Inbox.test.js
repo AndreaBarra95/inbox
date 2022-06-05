@@ -38,7 +38,6 @@ describe('Inbox Smart Contract', () => {
     });
 
     it('getMessage function should return a message string', async () => {
-        await inbox.methods.getMessage().send({from: accounts[0], gas: '1000000'});
         const message = await inbox.methods.getMessage().call();
         assert.equal(message, 'Hello There!');
     });
@@ -46,7 +45,6 @@ describe('Inbox Smart Contract', () => {
     it('Testing setMessage and getMessage together', async () => {
         await inbox.methods.setMessage('Ciao bello').send({ from: accounts[0], gas: '1000000' });
         const message = await inbox.methods.message().call();
-        await inbox.methods.getMessage().send({ from: accounts[0], gas: '1000000' });
         const newMessage = await inbox.methods.getMessage().call();
         assert.equal(newMessage, message);
     } );
